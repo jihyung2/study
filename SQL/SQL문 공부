@@ -1,0 +1,40 @@
+* Join문 : 두 개 이상의 테이블을 서로 연결하여 데이터를 검색할 때 사용하는 방법
+두 개의 테이블을 마치 하나의 테이블인 것처럼 보여준다.
+
+1. 내부조인 ( Inner Join )
+
+SELECT Sales.*, Countries.Country ( Sales의 전체와, Countries의 Country를 출력)
+FROM Sales ( 기준점을 잡을때, 병합된 테이블을 기준으로 보면 쉬움 )
+JOIN Countries ON Sales.CountryID = Countries.ID
+
+기준 테이블과 조인 테이블 모두에 조인 컬럼 데이터가 존재해야 조회됨 ( ON )
+( ON절의 데이터에서 겹치는 내용만 출력 )
+
+2. 자연 조인 ( Natural Join )
+
+SELECT *
+FROM R
+NATURAL JOIN S
+
+내부 조인에 속함, 두 테이블에서 동일한 컬럼명을 갖는 컬럼은 모두 조인됨
+두 테이블이 동시에 가지고 있는 컬럼의 값이 전부 같은 것만 골라냄
+* 반드시 두 테이블 간의 동일한 이름, 타입을 가진 컬럼이 필요.
+이름이 같지만 타입이 다른 컬럼이 있으면 에러
+( 쉽게 말해서 공통된 모든 부분 출력)
+
+3. 전체 외부 조인 ( Full Outer Join ) *1번 나옴
+
+SELECT * ( 두개의 테이블을 빼는거 없이 전체를 붙임 그래서 * 사용)
+FROM instructer ( 앞에 붙인거 기준 )
+FULL OUTER JOIN teaches 
+ON instructer.id = teaches.ID
+
+공통된 부분만 골라 결합하는 Inner Join과 다르게 공통되지 않는 행도 Null을 출력하여 표시한다.
+이때 두 테이블 모두의 값을 유지하면 Full Outer Join
+왼쪽 테이블 값만 유지하면 Left Outer Join
+오른쪽 테이블 값만 유지하면 Right Outer Join
+*MySQL에서는 FULL OUTER JOIN을 지원하지 않음, LEFT OUTER JOIN 결과와 RIGHT OUTER JOIN 결과를 UNION 하여 사용해야함
+
+4. 
+
+
