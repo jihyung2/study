@@ -1,7 +1,7 @@
 * Join문 : 두 개 이상의 테이블을 서로 연결하여 데이터를 검색할 때 사용하는 방법
 두 개의 테이블을 마치 하나의 테이블인 것처럼 보여준다.
 
-1. 내부조인 ( Inner Join )
+1. 내부조인 ( Inner Join ) 
 
 SELECT Sales.*, Countries.Country ( Sales의 전체와, Countries의 Country를 출력)
 FROM Sales ( 기준점을 잡을때, 병합된 테이블을 기준으로 보면 쉬움 )
@@ -35,6 +35,88 @@ ON instructer.id = teaches.ID
 오른쪽 테이블 값만 유지하면 Right Outer Join
 *MySQL에서는 FULL OUTER JOIN을 지원하지 않음, LEFT OUTER JOIN 결과와 RIGHT OUTER JOIN 결과를 UNION 하여 사용해야함
 
-4. 
-https://doh-an.tistory.com/30
+4. Left Outer Join
 
+SELECT * ( 내용을 보면 instructer와 teaches의 모든 컬럼을 포함 )
+FROM instructer ( Left 조인 이므로 기준 테이블 )
+LEFT OUTER JOIN teaches ( 테이블 2 )
+ON instructer.id = teaches.id
+
+왼쪽 테이블을 기준으로 일치하는 행만 결합되고, 일치하지 않는 부분은 null 값으로 채워짐
+( 기준 테이블에 더하는 느낌으로 생각하면 좋음 )
+
+5. Right Join
+
+SELCET *
+FROM instructer
+RIGHT OUTER JOIN teaches ( 기준 테이블 )
+ON instructer.id = teaches.id
+
+오른쪽 테이블을 기준으로 일치하는 행만 결합되고, 일치하지 않는 부분은 null
+( 기준 테이블에 더하는 느낌으로 생각하면 좋음 )
+
+6. Cross Join
+
+1)
+SELECT 조회할컬럼
+FROM 테이블1, 테이블2
+
+2)
+SELECT 조회할컬럼
+FROM 테이블1
+JOIN 테이블2
+
+3)
+SELECT 조회할컬럼
+FROM 테이블1
+CROSS JOIN 테이블2
+
+곱집합, 두 테이블 데이터의 모든 조합
+테이블1의 row*테이블2의 row개수 만큼 row를 가진 테이블 생성
+
+* GROUP BY문 : 데이터를 조회할 수 있게 컬럼을 그룹화 한다.
+
+컬럼 그룹화
+SELECT 컬럼 FROM 테이블 GROUP BY 그룹화할 컬럼;
+
+조건 처리 후에 컬럼 그룹화
+SELECT 컬럼 FROM 테이블 WHERE 조건식 GROUP BY 그룹화할 컬럼;
+
+컬럼 그룹화 후에 조건 처리
+SELECT 컬럼 FROM 테이블 GROUP BY 그룹화할 컬럼 HAVING 조건식;
+
+조건 처리 후에 컬럼 그룹화 후에 조건 처리
+SELECT 컬럼 FROM 테이블 WHERE 조건식 GROUP BY 그룹화할 컬럼 HAVING 조건식;
+
+ORDER BY가 존재하는 경우
+SELECT 컬럼 FROM 테이블 [WHERE 조건식]
+GROUP BY 그룹화할 컬럼 [HAVING 조건식] ORDER BY 컬럼1 [, 컬럼2, 컬럼3 ...];
+
+* GROUP BY를 사용하려면 SELECT에서 사용한 내용으로 해야함
+* ORDER BY는 JOIN으로 새로 생성된 컬럼명으로 해야한다.
+
+실습 추가 지식
+
+1. SELECT에서 SUM을 써서 JOIN 결과창에 없는 새로운 컬럼명을 생성 가능
+2. 새로운 컬럼명을 만들 때 AS (별칭)을 사용해서 이름을 만든다.
+3. 테이블의 이름이 길경우 FROM에서 ( 테이블명 별칭 )을 설정해준다.
+4. ASC 오름차순, DESC 내림차순
+5. ORDER BY는 JOIN으로 새로 생성된 컬럼명으로 해야한다.
+
+JOIN문에서 ON과 WHERE사용법
+
+join의 on절이 선조건이 됨.
+1. ON절에 조건을 사용할 경우 키값 조인을 하기전에 조건을 제외한다.
+2. Where절에 조건을 사용할 경우 테이블 조인의 결과값에 대한 조건검색 결과를 나타낸다.
+규칙 LEFT OUTER JOIN 시 ON 절에서는
+우측(널값으로 채워지는 쪽)의 추가 제약조건을 넣고
+좌측의 추가 제약조건은 WHERE절에 넣어야 한다.
+
+
+문제 : PRODUCT 테이블과 OFFLINE_SALE 테이블에서 상품코드 별 매출액(판매가 * 판매량) 합계를 출력하는 SQL문을 작성해주세요. 결과는 매출액을 기준으로 내림차순 정렬해주시고 매출액이 같다면 상품코드를 기준으로 오름차순 정렬해주세요.
+
+SELECT PRODUCT.PRODUCT_CODE, SUM(PRODUCT.PRICE * OFFLINE_SALE.SALES_AMOUNT ) AS SALES
+FROM PRODUCT
+JOIN OFFLINE_SALE ON PRODUCT.PRODUCT_ID = OFFLINE_SALE.OFFLINE_SALE_ID
+GROUP BY PRODUCT.PRODUCT_CODE
+ORDER BY SALES DESC, PRODUCT_CODE ASC
