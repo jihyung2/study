@@ -36,5 +36,5 @@ ON instructer.id = teaches.ID
 *MySQL에서는 FULL OUTER JOIN을 지원하지 않음, LEFT OUTER JOIN 결과와 RIGHT OUTER JOIN 결과를 UNION 하여 사용해야함
 
 4. 
-
+https://doh-an.tistory.com/30
 

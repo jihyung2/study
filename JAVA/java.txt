@@ -1,0 +1,389 @@
+자바스프링 및 자바 공부
+
+
+자바 기초 문법
+[]는 배열을 나타내는 데 사용됩니다. 
+배열은 동일한 유형의 여러 요소를 저장하는 자료구조입니다.
+ [] 안에는 배열의 크기를 나타내거나 비워둘 수도 있습니다. 
+예를 들어, int[] numbers = new int[5];는 numbers라는 이름의 int 형식의 배열을 생성하고, 배열의 크기를 5로 설정합니다.
+
+<>는 제네릭(Generic) 타입을 나타내는 데 사용됩니다. 
+제네릭은 클래스 또는 인터페이스를 정의할 때, 타입 매개변수를 사용하여 클래스나 인터페이스가 다양한 유형의 객체를 다룰 수 있도록 합니다. 
+예를 들어, ArrayList<String> list = new ArrayList<>();는 list라는 이름의 ArrayList 객체를 생성하며, 이 리스트는 문자열 타입의 요소를 저장할 수 있도록 정의됩니다.
+[]는 배열의 크기를 나타내는 데 사용되고, <>는 제네릭 타입을 나타내는 데 사용됩니다. 이들은 서로 다른 문법적인 의미를 가지고 있으며, 다른 용도로 사용됩니다.
+
+자바에서 배열과 리스트
+배열 : Array, 배열은 정의와 동시에 길이를 지정해야하며 길이를 중간에 바꿀 수 없음
+index를 통해 데이터에 접근 가능(Index는 데이터 식별자 역할), 정적이므로 크기를 초기에 지정해줘야함
+int[] arr1 = new int [10];
+정렬하기
+int[] arr = {3,4,123,4534,1234,152,1};
+Arrays.sort(arr);
+
+리스트 : List, 배열과 다르게 빈 공간을 허용하지 않음
+List에서의 Index는 데이터의 식별자가 아닌 몇 번째에 위치하였는지에 대한 의미만 갖는다.
+동적으로 배열의 크기가 정해져있지 않다.
+ArrayList<Integer> integers1 = new ArrayList<>();
+
+List<Integer> list = new ArrayList<>();
+
+list에 있는 데이터 개수 찾기
+// size()
+list.size();
+
+리스트의 데이터를 가져올 때 사용
+list.get(1);
+
+data추가
+// add(추가할 데이터)
+// 위치 지정을 하고 싶다면 add(추가할 위치, 추가할 데이터);
+list.add(10);
+list.add(12);
+
+데이터 수정 
+// set(데이터 index, 변경할 값);
+list.set(0, 15);
+
+Element삭제
+// remove(index값 또는 삭제할 값);
+// remove method는 해당 index값을 삭제하고 값을 return한다.
+// 값으로 삭제에 성공하면 true, 실패하면 false 리턴
+list.remove("사과");
+
+// 인덱스로 삭제에 성공하면 삭제한값을 리턴, 실패하면 false 리턴
+list.remove(0);
+
+// 값을 전체 다 삭제할 때는 clear(); 를 호출한다.
+list.clear();
+
+
+값 존재 유무 확인
+// contains(찾고자 하는 값);
+// contains는 값이 존재하는지에 대한 유무만을 return, true false 리턴해줌
+list.contains(13);
+
+// indexOf(찾고자 하는 값);
+// indexOf는 찾고자 하는 값의 위치를 return해준다. (값이 없으면 -1 return)
+list.indexOf(10);
+
+
+배열이 비었는지 확인
+// isEmpty();
+// boolean type으로 return된다. 비어있으면 true, 비어있지 않으면 false
+list.isEmpty();
+
+Array와 List비교
+Array는 데이터의 추가/삭제가 느리며 데이터 조회가 빠르다.
+List는 데이터의 추가/삭제가 빠르며 데이터의 조회가 느리다.
+데이터의 추가공간이 필요없이 크기가 정해져있고 추가적인 삽입/삭제 없이 검색을 필요로 할 때 유리하다.
+데이터의 크기가 정해져있지 않고 데이터의 삽입/삭제가 많은 경우 유리하다.
+
+
+public static void main(String[] args) {
+
+        List<String> myList = new ArrayList<>();
+
+        String course1 = "웹개발의 봄 Spring";
+        String course2 = "프론트엔드의 꽃 React";
+
+        // 리스트에 요소넣기 리스트.add()
+        myList.add(course1);
+        myList.add(course2);
+
+        System.out.println(myList);
+
+        // 리스트 요소 가져오기 리스트.get()
+        System.out.println(myList.get(1));
+
+        // 리스트 요소 지우기 리스트.remove()
+        myList.remove(1);
+
+        System.out.println(myList);
+
+    }
+
+
+
+
+
+    📃 클래스
+객체를 나타내기 위한 자바의 도구(= 정보를 묶는 것)
+클래스 내 정보를 멤버 변수라고 함
+클래스명과 똑같은 이름을 가진 메소드를 생성자라고 함
+
+
+public class Course {
+    public String title;
+    public String tutor;
+    public int days;
+
+		// 이렇게 아무런 파라미터가 없는 생성자를 기본생성자 라고 부릅니다.
+    public Course() {
+
+    }
+
+    public Course(String title, String tutor, int days) {
+			  // this 는 "이것" 이죠? 클래스 변수를 가리킵니다.
+        this.title = title;
+        this.tutor = tutor;
+        this.days = days;
+    }
+}
+
+
+private으로 정의한 것을 어떻게 가져올까?
+=> Getter / Setter를 이용하자!
+
+Getter는 쉽게 말하면 정보를 가져오는 메소드
+
+Setter는 정보를 바꾸는 메서드
+
+< 사용법 >
+1. 클래스에 가서 Getter와 Setter를 정의해준다
+
+// Getter
+public String getTitle() {
+    return this.title;
+}
+// Getter
+public String getTutor() {
+    return this.tutor;
+}
+// Getter
+public int getDays() {
+    return this.days;
+}
+
+// Setter
+public void setTitle(String title) {
+    this.title = title;
+}
+// Setter
+public void setTutor(String tutor) {
+    this.tutor = tutor;
+}
+// Setter
+public void setDays(int days) {
+    this.days = days;
+}
+
+
+2. 메인 클래스에서 Getter와 Setter 사용하려면 호출해서 사용!
+
+Course course = new Course();
+
+System.out.println(course.getTitle());
+System.out.println(course.getTutor());
+System.out.println(course.getDays());
+
+course.setTitle("웹개발의 봄 스프링");
+course.setTutor("남병관");
+course.setDays(35);
+
+System.out.println(course.getTitle());
+System.out.println(course.getTutor());
+System.out.println(course.getDays());
+
+
+
+📃 브라우저에 바로 나타내보기
+화면에 클래스 정보 띄워보기
+=> 데이터로 응답하려면 RestController를 사용!
+
+Rest란?
+
+서버의 응답이 JSON(데이터)형식임을 나타냄
+HTML, CSS등을 주고 받을 때는 Rest를 붙이지 않음
+Controller란
+
+응답하는 것(자동 응답기!)
+클라이언트의 요청(Request)을 전달받는 코드를 Controller라고 부름
+=> JSON만을 돌려주는 것을 RestController라고 부름'
+즉, RestController란 JSON형식으로 응답하는 자동응답기이다!
+
+<RestController 만들기>
+
+import com.sparta.week01.prac.Course;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+// RestController 만들기
+// 클래스 위에 @RestController 넣어줌
+@RestController
+public class CourseController {
+
+    // 브라우저에서 검색하는 것을 GET방식이라고 함
+    // courses로 브라우저에 쳐서 응답이 왔을 때 이 결과를 보여줄거야!
+    @GetMapping("/courses")
+    public Course getCourses() {
+        Course course = new Course();
+        course.setTitle("웹개발의 봄 스프링");
+        course.setDays(35);
+        course.setTutor("남병관");
+        return course;
+    }
+}
+
+
+자바 기초 문법 + Spring 기초 사용법
+https://velog.io/@piczo/Java-%EA%B8%B0%EC%B4%88-%EB%AC%B8%EB%B2%95-Spring-%EA%B8%B0%EC%B4%88-%EC%82%AC%EC%9A%A9%EB%B2%95
+
+
+스프링이란, + 기본 기능
+https://www.codestates.com/blog/content/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8
+
+
+의존성 줄이는 코드
+
+이러한 코드는 B에서 C로 바뀐다면 코드를 전체 수정해야함
+class A{
+    public void methodOfA(){
+        B b = new B();
+        b.example();
+    }
+}
+class B {
+    public void example(){
+        pass
+    }
+}
+
+
+
+스프링을 사용하면 위처럼 변화가 발생한 상황에 최소한의 수정만으로 변화를 유연하게 수용할 수 있습니다. 
+스프링을 사용하여 좀 더 변화에 유연하게 대응할 수 있는 코드를 작성하려면 아래와 같이 코드를 수정해주어야 합니다. 
+(1) ~ (5)의 설명을 순서대로 읽으면서 어떤 부분이 어떻게 바뀌었는지 파악해보세요.
+
+(1) A가 사용하는 메서드를 인터페이스 I의 추상 메서드로 정의한 다음, (추상화)
+interface I {
+    void example();
+}
+
+class A{
+    (3) 그 다음, 인터페이스 타입의 필드를 선언
+    private I i;
+
+    (4) 생성자를 통해 외부로부터 인스턴스를 받아와 i를 초기화 해준다. (다형성)
+    public A(I i){
+        this.i = i;
+    }
+    public void methodOfA(){
+        (5) 외부로부터 받아온 인스턴스의 메서드를 호출합니다.
+        i.example();
+    }
+}
+(2) A가 사용하는 메서드를 가진 객체들이 I
+class B implements I {
+    public void example(){
+        pass
+    }
+}
+
+class C implements I {
+    public void example(){
+        pass
+    }
+}
+
+
+연습 참고
+https://goddaehee.tistory.com/203
+
+
+java sringboot 첫 실행 
+
+에러발생 -  Unsupported class file major version 64 에러
+해결방법 - gradle 파일의 버전을 새로 수정하기 or java의 버전을 낮추기
+java20이여서 gradle이 호환하지 않아서 발생하는 에러였음
+
+에러발생 - package org.springframework.web.bind.annotation does not exist
+build.gradle을 연후
+해결방법 - implementation 'org.springframework.boot:spring-boot-starter-web'
+
+에러발생 - o.s.boot.SpringApplication 에러
+build.gradle을 연후
+해결방법 - spring boot의 버전을 3.1.1 -> 2.7.5로 낮춤 아마 3.1.1이 SNAPSHOT버전이라 그런듯
+
+spring boot 정리 
+
+src/main/java/com.example.spring/controller/TestController - 스프링 부트에서 웹 페이지의 요청을 처리하는 컨트롤러를 생성합니다. 
+컨트롤러는 사용자 요청을 받아들이고 적절한 동작을 수행한 후 응답을 반환합니다.
+
+src/main/resources/static/index.html - 실제 보이는 VIEW 페이지를 만듬
+
+src/main/resources/application.properties - 포트번호 변경 가능 ex) server.port = 8000
+
+build.gradle - 웬만한 설정은 여기서 정리함, springboot버전, 종속성 등등
+
+
+참고
+https://goddaehee.tistory.com/203
+
+
+8/23 수
+파이썬 코드를 자바 코드로 변경하는 작업이 필요한데, 주어진 파이썬 코드는 POST 요청을 보내는 부분이 있습니다.
+자바에서 POST 요청을 보내려면 HttpURLConnection을 사용하면 되지만, 파이썬의 딕셔너리와 비슷한 형태인 JSON 데이터를 POST 요청으로 보내기 위해서는
+HttpURLConnection을 사용하여 요청 본문에 JSON 데이터를 추가해야 합니다.
+자바에서 Json을 사용하려면 아래와 같은 형식으로 사용
+
+ex) Java
+URL url = new URL("http://127.0.0.1:5010/query/NORMAL");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json"); //요청헤더 설정
+            connection.setRequestProperty("charset", "utf-8"); // 문자 인코딩 설정
+            connection.setDoOutput(true); // 요청을 보낼 것 이므로 출력 스트림을 열어 데이터를 보낼 수 있게 설정
+
+            String userText = "for문은 반복문인가요?";
+            String requestData = "{\"query\":\"" + userText + "\"}";
+
+            try (DataOutputStream wr = new DataOutputStream(connection.getOutputStream())) {
+                byte[] requestDataBytes = requestData.getBytes(StandardCharsets.UTF_8);
+                wr.write(requestDataBytes);
+            }
+
+기존의 Json 라이브러리를 추가하여 사용했지만, 400에러( 전송 형식이 맞지 않음 )으로 전송 형식을 맞춰서 전송하는 방식으로 변경함
+따로 라이브러리를 추가하지 않고 기존 데이터의 형태를 수정함
+*UTF_8을 사용하여 한글 형식으로 보내고 받기*
+
+ex) python
+datas = {
+            "query": str(user_text)
+        }
+url = "http://127.0.0.1:5010/query/NORMAL"
+response = requests.post(url, json=datas)
+context.bot.send_message(chat_id=chat_id, text=response.json()['Answer'])
+if response.json()['Answer'] == "부정확한 질문이거나 답변할 수 없습니다.":
+    sql = "INSERT INTO failanswer (userquery ,aiquery, answer, intent) VALUES (%s, %s, %s, %s)"
+    cursor.execute(sql,
+                   (str(user_text), response.json()['Query'], response.json()['Answer'],
+                    response.json()['Intent']))
+db.commit()
+db.close()
+
+### HTTP 요청 및 응답과 관련된 주요 클래스들과 메서드 설명
+
+#### InputStreamReader:
+InputStreamReader 클래스는 입력 스트림에서 바이트를 읽어 문자로 변환하는 데 사용됩니다.
+BufferedReader와 함께 사용하여 서버 응답의 내용을 문자열 형태로 읽을 수 있습니다.
+예제 코드에서 InputStreamReader는 connection.getInputStream()의 결과를 문자열로 읽기 위해 사용됩니다.
+
+#### getInputStream():
+getInputStream() 메서드는 HttpURLConnection 객체로부터 서버 응답 데이터를 읽기 위한 입력 스트림을 가져옵니다.
+이 메서드를 호출하면 서버로부터 오는 응답 데이터를 읽을 수 있는 스트림을 얻게 됩니다.
+
+#### DataOutputStream:
+DataOutputStream 클래스는 출력 스트림에 기본 데이터 타입을 쓰기 위해 사용됩니다.
+예제 코드에서는 connection.getOutputStream()의 결과를 이용하여 요청 본문에 데이터를 쓰기 위해 사용됩니다.
+
+#### OutputStream (추가 설명):
+OutputStream 클래스는 바이트 기반의 출력 스트림을 나타내는 추상 클래스입니다.
+HttpURLConnection의 getOutputStream() 메서드는 요청을 보낼 때 사용할 출력 스트림을 반환합니다.
+
+어떤 방향으로 작성하는지 기억해야함
+
+1. HttpURLConnection으로 restapi를 할 url과 연결함
+2. DataOutputStream으로 보낼 데이터(출력)으로 데이터를 전송함
+3. getInputStream으로 보낸 데이터의 결과값을 읽어들임
+4. InputStreamReader으로 읽어들인 결과값을 문자로 변환함
+
