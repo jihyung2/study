@@ -14,7 +14,7 @@ public class java14_3 {
         dataset.put("remain", 3);
 
 
-        List<int[]> answer = new ArrayList<>();
+        List<int[]> answer = new ArrayList<>(); // 배열로 인자값을 받을 거라 이렇게 작성
         for (int[] d : data ){
             if (d[dataset.get(ext)]<val_ext){ // 이렇게하면 1. Map에 들어있는 내용으로 값을 가져옴 ex) 만약 ext가 code면 0 이런식으로 값을 가져온 후
                 // 배열하나가 통으로 들어오기 때문에 값 하나를 비교할 수 있음
