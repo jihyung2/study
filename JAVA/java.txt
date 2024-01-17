@@ -543,3 +543,6 @@ HttpURLConnection의 getOutputStream() 메서드는 요청을 보낼 때 사용�
 3. getInputStream으로 보낸 데이터의 결과값을 읽어들임
 4. InputStreamReader으로 읽어들인 결과값을 문자로 변환함
 
+자바 스프링 부트의 DO, VO 를 찾아서 공부하기
+
+자바 관련 공부 추가
