@@ -135,18 +135,411 @@ Java는 서버쪽, JS는 클라이언트쪽 언어
 MyBatis란 쿼리문을 복잡하게 입력하지 않고 실제 쿼리문과 유사하게 작성가능함
 자바 개발자들이 데이터베이스를 쉽게 다룰 수 있도록 도와주는 오픈소스 프레임워크
 
-OSI 7계층                     TCP/IP 4계층
 
-L7 응용 계층                  L4 응용 계층 : TCP/UDP 기반의 응용 프로그램을 구현할 때 사용, FTP, HTTP, SSH
-L6 표현 계층                  
-L5 세션 계층                 
-L4 전송 계층                  L3 전송 계층 : 통신 노드 간의 연결을 제어하고, 신뢰성 있는 데이터 전송을 담당, TCP, UDP
-L3 네트워크 계층              L2 인터넷 계층 : 통신 노드간의 IP 패킷을 전송하는 기능과 라우팅 기능을 담당, IP, ARP, RARP
-L2 데이터링크 계층            L1 네트워크 계층 : 물리적인 주소로 MAC을 사용, LAN, 패킷망 등에 사용
-L1 물리 계층                 
+자바 기초 문법
+[]는 배열을 나타내는 데 사용됩니다. 
+배열은 동일한 유형의 여러 요소를 저장하는 자료구조입니다.
+ [] 안에는 배열의 크기를 나타내거나 비워둘 수도 있습니다. 
+예를 들어, int[] numbers = new int[5];는 numbers라는 이름의 int 형식의 배열을 생성하고, 배열의 크기를 5로 설정합니다.
+
+<>는 제네릭(Generic) 타입을 나타내는 데 사용됩니다. 
+제네릭은 클래스 또는 인터페이스를 정의할 때, 타입 매개변수를 사용하여 클래스나 인터페이스가 다양한 유형의 객체를 다룰 수 있도록 합니다. 
+예를 들어, ArrayList<String> list = new ArrayList<>();는 list라는 이름의 ArrayList 객체를 생성하며, 이 리스트는 문자열 타입의 요소를 저장할 수 있도록 정의됩니다.
+[]는 배열의 크기를 나타내는 데 사용되고, <>는 제네릭 타입을 나타내는 데 사용됩니다. 이들은 서로 다른 문법적인 의미를 가지고 있으며, 다른 용도로 사용됩니다.
+
+자바에서 배열과 리스트
+배열 : Array, 배열은 정의와 동시에 길이를 지정해야하며 길이를 중간에 바꿀 수 없음
+index를 통해 데이터에 접근 가능(Index는 데이터 식별자 역할), 정적이므로 크기를 초기에 지정해줘야함
+int[] arr1 = new int [10];
+정렬하기
+int[] arr = {3,4,123,4534,1234,152,1};
+Arrays.sort(arr);
+
+리스트 : List, 배열과 다르게 빈 공간을 허용하지 않음
+List에서의 Index는 데이터의 식별자가 아닌 몇 번째에 위치하였는지에 대한 의미만 갖는다.
+동적으로 배열의 크기가 정해져있지 않다.
+ArrayList<Integer> integers1 = new ArrayList<>();
+
+List<Integer> list = new ArrayList<>();
+
+list에 있는 데이터 개수 찾기
+// size()
+list.size();
+
+리스트의 데이터를 가져올 때 사용
+list.get(1);
+
+data추가
+// add(추가할 데이터)
+// 위치 지정을 하고 싶다면 add(추가할 위치, 추가할 데이터);
+list.add(10);
+list.add(12);
+
+데이터 수정 
+// set(데이터 index, 변경할 값);
+list.set(0, 15);
+
+Element삭제
+// remove(index값 또는 삭제할 값);
+// remove method는 해당 index값을 삭제하고 값을 return한다.
+// 값으로 삭제에 성공하면 true, 실패하면 false 리턴
+list.remove("사과");
+
+// 인덱스로 삭제에 성공하면 삭제한값을 리턴, 실패하면 false 리턴
+list.remove(0);
+
+// 값을 전체 다 삭제할 때는 clear(); 를 호출한다.
+list.clear();
+
+
+값 존재 유무 확인
+// contains(찾고자 하는 값);
+// contains는 값이 존재하는지에 대한 유무만을 return, true false 리턴해줌
+list.contains(13);
+
+// indexOf(찾고자 하는 값);
+// indexOf는 찾고자 하는 값의 위치를 return해준다. (값이 없으면 -1 return)
+list.indexOf(10);
+
+
+배열이 비었는지 확인
+// isEmpty();
+// boolean type으로 return된다. 비어있으면 true, 비어있지 않으면 false
+list.isEmpty();
+
+Array와 List비교
+Array는 데이터의 추가/삭제가 느리며 데이터 조회가 빠르다.
+List는 데이터의 추가/삭제가 빠르며 데이터의 조회가 느리다.
+데이터의 추가공간이 필요없이 크기가 정해져있고 추가적인 삽입/삭제 없이 검색을 필요로 할 때 유리하다.
+데이터의 크기가 정해져있지 않고 데이터의 삽입/삭제가 많은 경우 유리하다.
+
+크기 조정: 배열의 크기는 선언할 때 정해지고, 이후에는 변경할 수 없다. 반면에 List는 동적으로 크기를 조정할 수 있다. 요소를 추가하거나 제거할 때 List의 크기가 자동으로 조정되므로 편리하다.
+
+삽입과 삭제: List는 요소의 삽입과 삭제가 쉽다. 요소를 삽입하려면 인덱스를 지정하고 값을 추가하면 되며, 요소를 삭제하려면 인덱스나 값으로 제거할 수 있습니다. 배열의 경우 요소를 삽입하거나 삭제하려면 많은 작업이 필요하다.
+
+유연한 자료형: List는 여러 가지 자료형의 요소를 저장할 수 있다. 예를 들어, 정수, 문자열, 객체 등 다양한 유형의 데이터를 한 List에 저장할 수 있다. 하지만 배열은 하나의 자료형만 저장할 수 있다.
+
+편리한 메서드: 자바의 List 인터페이스를 구현한 클래스들은 다양한 메서드를 제공한다. 예를 들어, 요소 검색, 정렬, 필터링 등의 작업을 쉽게 수행할 수 있다. 이러한 메서드를 사용하면 코드 작성과 유지보수가 간편해진다.
+
+제네릭 타입: List는 제네릭 타입을 지원하므로, 컴파일 시에 타입 안정성을 보장할 수 있다. 타입 안정성을 유지하면 코드의 신뢰도와 유지보수성이 향상된다.
+
+결론적으로, 자바에서 List를 사용하면 배열보다 유연하고 편리한 데이터 구조를 구현할 수 있다. List는 크기 조정, 삽입 및 삭제, 다양한 자료형 지원, 편리한 메서드, 제네릭 타입 등의 장점을 가지고 있어 많은 상황에서 배열보다 선호되는 선택이다.
+
+자바의 Map은 파이썬의 딕셔너리와 유사한 구조로
+
+리스트나 배열처럼 순차적으로 해당 요소 값을 구하지 않고 Key를 통해 Value를 얻는다.
+많이 사용하는 방식
+
+람다식 예제: 
+ (1. 메서드) 
+void PrintVal(String name, int i){
+    System.out.println(name+"="+i); 
+}
+ (1. 람다식)
+ (name, i) -> System.out.println(name+"="+i)
+
+ (2. 메서드)
+ int square(int x){
+    return x*x
+ }
+ (2. 람다식)
+ x -> x*x
+
+ (3. 메서드)
+ int roll(){
+    return (int) (Math.random()*6);
+ }
+ (3. 람다식)
+ () ->  { return (int) (Math.random()*6) }
+
+ (4. 메서드)
+ int sumArr(int[] arr){
+    int sum = 0;
+    for (int i : arr){
+        sum+=i;
+    }
+    return sum;
+ }
+ (4. 람다식)
+ (int[] arr) -> {int sum = 0;
+    for (int i : arr){
+        sum+=i;
+    }
+    return sum;
+ }
+
+public static void main(String[] args) {
+
+        List<String> myList = new ArrayList<>();
+
+        String course1 = "웹개발의 봄 Spring";
+        String course2 = "프론트엔드의 꽃 React";
+
+        // 리스트에 요소넣기 리스트.add()
+        myList.add(course1);
+        myList.add(course2);
+
+        System.out.println(myList);
+
+        // 리스트 요소 가져오기 리스트.get()
+        System.out.println(myList.get(1));
+
+        // 리스트 요소 지우기 리스트.remove()
+        myList.remove(1);
+
+        System.out.println(myList);
+
+    }
+
+* 자바 문자열 비교하기
+compareTo() - 문자열의 사전순 값을 비교하여 그에 해당되는 int값을 리턴
+예로 A > B 라고 가정하면,
+- A = A  =  0 (동일한 경우) 
+- A > B  =  1 (좌측 값이 큰 경우) 
+- B > A  = -1 (좌측 값이 작은 경우) 
+
+compare() - Comparator 인터페이스를 구현할 때 작성해야하는 메서드이다.
+실제로 구현할 때 compare()에 2개의 인자를 넘겨 내부에 구현에 따라 int 결과 값을 리턴한다.
+
+* 배열의 sort
+public static void main(String[] args) {
+        int[] intArr = {8,7,6,5,4};
+        for(int i: intArr) 
+            System.out.print(i + " ");
+        System.out.println();
+      //8 7 6 5 4
+
+        Arrays.sort(intArr);
+        for (int i : intArr) 
+            System.out.print(i + " ");
+        System.out.println();
+      //4 5 6 7 8
+
+        // String
+        String[] strArr = {"d", "c", "b", "a"};
+        for(String s: strArr) 
+            System.out.print(s + " ");
+        System.out.println();
+        // d c b a
+
+        Arrays.sort(strArr);
+        for (String s : strArr) 
+            System.out.print(s + " ");
+        System.out.println();
+      // a b c d
+
+        Arrays.sort(strArr, Collections.reverseOrder());
+        for (String s : strArr) 
+            System.out.print(s + " ");
+      // d c b a
+    }
+
+-HashMap 특징
+
+1. 요소의 저장 순서를 유지하지 않습니다.
+
+2. key :  중복을 허용  X 
+
+   value :  중복은 허용 O
+
+HashMap<String, String> map = new HashMap<String, String>();
+map.put("people", "사람");
+map.put("baseball", "야구");
+
+get
+
+key에 해당되는 값을 얻기 위해서는 다음과 같이 한다.
+System.out.println(map.get("people"));
+위와같이 get 메소드를 이용하면 value값을 얻을 수 있다. 위 예제는 결과로 "사람"이라는 문자열을 출력할 것이다.
+
+containsKey
+
+containsKey 메소드는 맵(Map)에 해당 키(key)가 있는지를 조사하여 그 결과값을 리턴한다.
+System.out.println(map.containsKey("people"));
+"people"이라는 키는 존재하므로 true가 출력될 것이다.
+
+remove
+
+remove 메소드는 맵(Map)의 항목을 삭제하는 메소드로 key값에 해당되는 아이템(key, value)을 삭제한 후 그 value 값을 리턴한다.
+System.out.println(map.remove("people"));
+"people"에 해당되는 아이템(people:사람)이 삭제된 후 "사람"이 출력될 것이다.
+
+size
+size 메소드는 Map의 갯수를 리턴한다.
+System.out.println(map.size());
+
+만약 입력된 순서대로 데이터를 가져오고 싶을때는 LinkedHashMap을 사용한다.
+TreeMap은 입력된 key의 소트순으로 데이터가 출력되는 특징을 가지고 있다.
+
+TreeMap은 키와 값을 한 쌍으로 하는 데이터를 이진 검색 트리의 형태로 저장한다.
+
+* int와 Integer의 차이
+int는 정수형 변수의 타입이고
+Integer는 int 자료형을 객체로 다루기 위한 클래스 (Wrapper 클래스)
+정수값만을 참조할 경우 int가 효율적이지만, 정수값을 객체로 사용하거나 메서드 및 속성의 사용이 필요한 경우 Integer 클래스를 사용한다.
+double - Double
+float - Float
+long - Long
+int - Integer
+short - Short
+byte - Byte
+char - Character
+boolean - Boolean
+
+* 스트림이란
+자바 8 API에 새로 추가된 기능으로 스트림을 이용하면 선언형으로 컬렉션 데이터를 처리할 수 있다.
+데이터 처리 연산을 지원하도록 소스에서 추출된 연속된 요소로 정의가능
+filter, map, reduce, find, match, sort 등으로 데이터를 조작가능
+
+List<String> teenagerNames = members.stream()
+        .filter(member -> member.getAge() < 20) // 내부 반복
+        .map(Member::getName) // 파이프라이닝이 가능하다. 내부 반복
+        .collect(toList());
+
+
+    📃 클래스
+객체를 나타내기 위한 자바의 도구(= 정보를 묶는 것)
+클래스 내 정보를 멤버 변수라고 함
+클래스명과 똑같은 이름을 가진 메소드를 생성자라고 함
+
+
+public class Course {
+    public String title;
+    public String tutor;
+    public int days;
+
+      // 이렇게 아무런 파라미터가 없는 생성자를 기본생성자 라고 부릅니다.
+    public Course() {
+
+    }
+
+    public Course(String title, String tutor, int days) {
+           // this 는 "이것" 이죠? 클래스 변수를 가리킵니다.
+        this.title = title;
+        this.tutor = tutor;
+        this.days = days;
+    }
+}
+
+
+private으로 정의한 것을 어떻게 가져올까?
+=> Getter / Setter를 이용하자!
+
+Getter는 쉽게 말하면 정보를 가져오는 메소드
+
+Setter는 정보를 바꾸는 메서드
+
+### HTTP 요청 및 응답과 관련된 주요 클래스들과 메서드 설명
+
+#### InputStreamReader:
+InputStreamReader 클래스는 입력 스트림에서 바이트를 읽어 문자로 변환하는 데 사용됩니다.
+BufferedReader와 함께 사용하여 서버 응답의 내용을 문자열 형태로 읽을 수 있습니다.
+예제 코드에서 InputStreamReader는 connection.getInputStream()의 결과를 문자열로 읽기 위해 사용됩니다.
+
+#### getInputStream():
+getInputStream() 메서드는 HttpURLConnection 객체로부터 서버 응답 데이터를 읽기 위한 입력 스트림을 가져옵니다.
+이 메서드를 호출하면 서버로부터 오는 응답 데이터를 읽을 수 있는 스트림을 얻게 됩니다.
+
+#### DataOutputStream:
+DataOutputStream 클래스는 출력 스트림에 기본 데이터 타입을 쓰기 위해 사용됩니다.
+예제 코드에서는 connection.getOutputStream()의 결과를 이용하여 요청 본문에 데이터를 쓰기 위해 사용됩니다.
+
+#### OutputStream (추가 설명):
+OutputStream 클래스는 바이트 기반의 출력 스트림을 나타내는 추상 클래스입니다.
+HttpURLConnection의 getOutputStream() 메서드는 요청을 보낼 때 사용할 출력 스트림을 반환합니다.
+
+어떤 방향으로 작성하는지 기억해야함
+
+1. HttpURLConnection으로 restapi를 할 url과 연결함
+2. DataOutputStream으로 보낼 데이터(출력)으로 데이터를 전송함
+3. getInputStream으로 보낸 데이터의 결과값을 읽어들임
+4. InputStreamReader으로 읽어들인 결과값을 문자로 변환함
+
+OSI 7계층                            TCP/IP 4계층
+
+L7 응용 계층 : SMTP, FTP, HTTP       L4 응용 계층 : TCP/UDP 기반의 응용 프로그램을 구현할 때 사용, FTP, HTTP, SSH
+L6 표현 계층 : ASCII,GIF                  
+L5 세션 계층 : API, SOCKET              
+L4 전송 계층 : TCP, UDP              L3 전송 계층 : 통신 노드 간의 연결을 제어하고, 신뢰성 있는 데이터 전송을 담당, TCP, UDP
+L3 네트워크 계층 : 라우터             L2 인터넷 계층 : 통신 노드간의 IP 패킷을 전송하는 기능과 라우팅 기능을 담당, IP, ARP, RARP
+L2 데이터링크 계층: 스위치 이더넷      L1 네트워크 계층 : 물리적인 주소로 MAC을 사용, LAN, 패킷망 등에 사용
+L1 물리 계층 : 통신 케이블                
 
 * ARP : ARP는 IP 주소를 MAC 주소로 변환해주기 위해 사용 되는 동적 매핑 프로토콜, 목적지 호스트 IP주소는 아는데, MAC주소(물리적 주소)를 모를 경우 사용
 
 TCP/IP 통신은 실시간성 패킷 통신
 RestAPI는 단방향 통신
 WebSocket은 Restapi를 실시간성 통신하게 만들어주는 패킷 통신
+
+자료구조 공부해가기 
+
+자료구조가 메모리공간을 효율적으로 사용하는데 필요함
+
+자료구조에는 선형 구조 선형, 비선형으로 나눠지는데
+
+비선형에는 트리, 그래프가 존재한다.
+선영에는 정적 자료구조인 배열과
+동적 자료구조인 리스트, 큐, 스택이 있다.
+
+스택은 LIFO 큐는 FIFO 선입선출
+리스트는 순서가 있고, 삽입 삭제가 쉽고 검색이 느리고
+배열은 순서가없고 중간에 데이터가 빠져도 그대로 냅둠, 삽입삭제가 어렵고 검색이 빠름
+
+네트워크 통신과정
+보내는쪽
+응용계층에서 클라이언트에서 어디에 무엇을 보낼지를 OS에 부탁하고
+전송계층에서 OS에서 어디에 보낼지 정보와 무엇을 보낼지에 관한 정보 등을 담아 소켓 형태로 담고 패킷으로 쪼갠다.
+인터넷계층, 네트워크 계층에서 쪼개진 패킷을 서버에 전송한다.
+받는쪽
+서버에 도착하면 소켓을 다시 조립하고
+재구성된 소켓에서 ip주소를 얻고 ARP로 MAC주소를 얻어낸다.
+
+
+naver.com에 들어가기 위해 일어나는 일
+평소에 네이버에 들어가봤는지, 캐시 서버와 호스트 서버에서 해당 URL(www.naver.com)의 IP주소를 찾아봅니다.
+
+있다면 사용하고, 없다면 위의 과정을 통해 DNS 서버에 내가 가고자 하는 URL의 IP를 알려달라는 요청을 보냅니다.
+
+해당 요청을 통해 받아온 IP주소로 웹사이트에 대한 데이터들을 달라는 요청을 받아온 IP 주소로 보냅니다.
+
+받아온 데이터들을 렌더링하고 가공하여, 우리가 아는 네이버의 모습을 보여줍니다.
+
+이 과정에서 DNS에서 IP를 받아오는 일, naver의 서버에서 데이터들을 받아오는 일들은
+전부 위의 각각의 계층을 통과하는 네트워크 통신 과정을 통해 일어납니다.
+
+물리: 보내는 쪽에서 전송한 전기 신호를 1계층 장비(허브, 케이블 등)가 재생성해서 2계층으로 전달
+데이터: 2계층은 1계층으로부터 받은 전기 신호를 데이터 형태로 변환.
+이 데이터에 있는 목적지가 내 랜카드의 MAC 주소랑 맞는지 확인하여 맞으면 3계층으로 데이터를 전달 아니면 폐기
+네트워크:3계층은 2계층으로부터 받은 MAC주소랑 3계층의 IP주소를 확인해서 알맞은 단말기로 라우터가 최적의 경로를 찾아서 패킷을 전달
+전송: 4계층은 3계층으로 부터 받은 패킷의 시퀀스, ACK 번호 및 포트번호를 확인해서 해당 패킷을 차단시키거나 통과시킴
+세션: 5계층은 보내는 쪽과 받는 쪽을 연결하고 안정적으로 유지되도록 관리. 패킷 전송이 완료되면 연결을 끊는 역할을 수행
+표현: 6계층은 받은 패킷을 자신의 시스템 또는 애플리케이션에 맞게 인코딩 또는 암호화 등을 하여 통일된 형식으로 변환
+응용: 7계층은 6계층으로 부터 받은 통일된 형식의 데이터를 애플리케이션에서 사용
+
+TCP의 연결은 3wayhandshake고 연결해졔는 4wayhandshake
+1. 연결 요청
+2. 응답 + 응답 대기
+3. 응답 -> 연결
+
+1. 연결 종료 요청
+2. 응답 + 통신완 기다림
+3. 통신 다되면 응답
+4. 확인 응답
+
+DNS는 도메인 이름과 ip주소를 변환하는 역할 ( 인터넷 전화번호부 )
+
+------------------------------
+
+경험 리스트 :
+
+오버로딩 오버라이딩의 개념 *** 매우 잘나옴
+
+자바의 다형성 개념 숙지 필요
+
+자바 스프링부트의 DTO, VO 숙지 필요
+
+자바 스프링 부트는 배움없이 프로젝트 경험만 있어서 개념 부분이 부족함
+
+접근제어자
+
+동적, 정적 자료구조 설명 ( 스택, 큐, 배열 )
