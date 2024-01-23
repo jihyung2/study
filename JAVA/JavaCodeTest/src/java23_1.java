@@ -9,7 +9,7 @@ public class java23_1 {
         int[] List = new int[list.length];
 
         for(int i = 0; i<list.length; i++){
-            List[i] = Integer.parseInt(list[i]);
+            List[i] = Integer.parseInt(list[i]); //Integer.parseInt, Arrays.toString() 기억하기
         }
         Arrays.sort(List); // 문자열 리스트 정렬하는 방식( 오른차순 )
         int min = List[0];
