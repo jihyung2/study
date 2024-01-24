@@ -586,8 +586,8 @@ ex) class BookVO {
           return Objects.hash(id);
      }
 }
-출처: https://hoyhouse.tistory.com/59 [hoyhouse:티스토리]
 
+전자정부프레임워크가 스프링과 비슷하지만 DAO를 꼭 extends하여 구현해야한다. 
 ------------------------------
 경험 리스트 :
 
