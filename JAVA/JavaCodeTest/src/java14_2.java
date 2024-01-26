@@ -25,7 +25,6 @@ public class java14_2 {
 
                 }
             }
-
             return answer;
         }
     }

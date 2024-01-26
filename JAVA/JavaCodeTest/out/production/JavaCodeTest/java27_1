@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Solution {
+    public String solution(String s) {
+
+        s = s.toLowerCase();
+        StringTokenizer st = new StringTokenizer(s, " ", true);
+        // True일때 공백을 포함하여 토큰을 생성 ex) Hello World -> "Hello"," ","World" 3게
+
+        StringBuilder answer = new StringBuilder();
+
+        while(st.hasMoreTokens()) { // hasMoreTokens, st.nextToken() -> 토큰이 있으면 반복, 다음 토큰 가져오기
+            String word = st.nextToken();
+            if(word.length() == 0) {
+    			answer.append(" ");
+            }
+            else {
+//String substring(int start, int end );문자열을 반환하는데, 시작위치와 끝을 지정해줌( 끝-1까지 반환함)
+//String substring(int index); 몇번쨰 위치인지 정하면, 해당 위치부터 이후의 모든 문자열을 반환함
+                answer.append(word.substring(0,1).toUpperCase() + word.substring(1));
+            }
+        }
+
+
+        return answer.toString();
+    }
+}
