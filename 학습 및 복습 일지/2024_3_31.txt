@@ -1,0 +1,45 @@
+3/31
+
+https://flatsun.tistory.com/2498
+
+디버그 모드 및 테스트 하기
+
+* 점심시간엔 질문하지 않기 * (쉬는 시간임)
+
+면접때 어짜피 다시 가르쳐야한다. 다시 배워야 한다. 라고 하심 걍 맘에 두고 새로 할 기술만 배워가고
+
+기존에 했던 프로젝트들은 어짜피 보면 이해가 가기 때문에 흐름만 파악한다.
+
+
+
+개발 하던 과정이
+
+시나리오를 작성한다. 
+
+시나리오대로 개발한다 인데
+
+ex) 센서의 데이터가 이런 방식으로 들어오면 이렇게 받아서 이렇게 가공하고 데이터베이스에 저장 
+
+웹에서는 데이터베이스를 참조 (1초마다? 혹은 좋은 방법이 있다면 선택) 해서 웹에 출력해주기
+
+자바가 그나마 가장 자신있고 가장 최근에 했었기 때문에 보면 이해가 되고 작성도 자바 스프링부트로는 문제없이 할 수 있을 것이다.
+
+repository : DB나 entity 관리
+controller : 1. 클라이언트와의 소통 받은 데이터를 Service로 넘겨서 가공처리
+service : Repository에서 얻어온 정보를 바탕으로 가공해서 Controller에 정보를 보내기  
+
+데이터가 들어오면 -> controller에서 RestAPI로(PostMapping) 데이터를 받고 (Requestbody로 getter,setter구조로) 처리 및 가공한다. 후 데이터베이스에 저장해야함 ->
+entity의 getter, setter 구조로 보내서 값을 받아온 후 -> Service에서 데이터베이스에 저장하는 연산을 작성 후 -> Repository(JPA로)에서 값을 넣는다.
+-> DB에 저장완료
+ 
+controller -> Service -> Repository -> DB
+
+String Builder는 동기화 없는 버퍼
+
+String Buffer는 동기화 지원하는 버퍼
+
+개선점 
+1. SerialData를 controller로 옮기기
+2. SerialData -> restapi를 사용할 필요가 없었네 어짜피 블루투스 시리얼 포트로 들어오니깐 괜히 썼다
+
+SerilaData->restapi->service->repository
