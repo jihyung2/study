@@ -97,3 +97,21 @@ url상에서 데이터를 전달하는 경우(form 태그 등) @RequestParam 을
 
 협업을 위한 git 사용법
 https://sseozytank.tistory.com/41
+
+git add -> git commit -> git push
+
+
+기존에 맥북으로 사용 
+    * 가장 최근 커밋한 지점으로 롤백하기
+        * git reflog
+        * git reset —hard HEAD^ (HEAD 대신에 소스 입력가능)
+        * git commit -m “커밋 메세지”
+        * git push -f origin 
+* 깃허브 기존 파일 레파지토리 등록
+    * 숨김 파일에서 .git 지우기 (숨김파일 보이기 : Shift + Command + . )
+    * Git remote -v : 연결된 레파지토리 확인
+    * Git remote remove origin : 연결된 레파지토리 지움
+    * Git remote add origin (주소)
+    * Git add .
+    * Git commit -m “메세지 내용”
+    * Git push origin master
