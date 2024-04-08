@@ -1,0 +1,52 @@
+
+추가 지식
+
+@Controller와 RestController의 차이
+
+@Controller는 주로 View를 반환하기 위해 사용한다.
+
+@Controller의 역할은 Model 객체를 만들어 데이터를 담고 View를 찾는 것이지만
+@RestController는 단순히 객체만을 반환하고 객체 데이터는 JSON 또는 XML 형식으로 HTTP 응답에 담아서 전송합니다.
+
+스프링 프로젝트 자체에서 view를 반환하고 싶은 경우에는 @Controller를, json이나 xml 형식으로 클라이언트에 전달하고 싶은 경우에는 @RestController를 사용합시다.
+
+proxy 에러 고침 :
+RequestMapping으로 전체 틀을 잡는다.
+
+@Controller
+@RequestMapping("/api/work")
+@PostMapping("/vuedata")
+ -> /api/work/vuedata로 들어온 데이터 처리 
+ 
+ 
+@RestController
+@PostMapping("/api/work/vuedata")
+-> /api/work/vuedata로 들어온 데이터 처리
+
+둘 중 하나 사용하지만 이름 잘 보고 사용하기
+
+ResponseEntity란 Spring Framework에서 제공하는 클래스로, 웹 애플리케이션에서 HTTP 응답을 생성하고 제어하는 데 사용한다.
+클라이언트에게 응답을 반환할 때 응답 본문과 함께 HTTP 상태코드, 헤더 및 기타 응답 메타 데이터를 포함하는데 유용하다.
+
+VPN(Virtual Private Network) 인터넷 망에 가상 사설망을 구축하는것
+
+ArrayLIst는 Index가 있고, Linked List는 각 원소마다 앞, 뒤 원소의 위치값을 가지고 있다.
+
+ArrayList : 배열을 개선한 자료구조, 가장 간단한 자료구조, 접근 속도가 빠르다. 검색에 유리한 구현체
+
+LinkedList : 데이터를 저장하는 각 노드가 이전 노드와 다음 노드의 상태만 알고 있다. 노드의 삽입, 삭제 작업이 용이하다. 기억 공간이 연속적으로 놓여있지 않아도 저장 가능, 트리를 표현할 때 가장 적합하다.
+
+Service와 Serviceimpl구조(implements)
+Service 인터페이스는 비즈니스 로직을 담당하고, Serviceimpl는 Service 인터페이스를 구현하여 실제 로직을 담당한다.
+OCP에 입각한 코드이다.
+
+SHA-256 : 임의의 길이 메시지를 256bit의 축약된 메세지로 만들어내는 해시 알고리즘
+
+디버깅좀 배워야할듯 console, print로 에러찾기 비효율적임
+
+MD5 : 128비트, 전자서명, 응용프로그램 등 정보보호를 목적으로 개발한 해시 알고리즘
+
+대표적인 해시 알고리즘 MD5, SHA가 있다.
+
+해시(Hash)와 암호화(Encryption)의 차이점이 무엇인가요?둘 다 암호화 기법이지만 Hash는 단방향 암호화 기법이고 Encryption은 양방향 암호화 기법이다.
+
