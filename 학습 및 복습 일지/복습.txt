@@ -1,12 +1,88 @@
+   [교통용어]
+
+DRT(Demand Responsive Transport) - 수요 응답형 교통체계, 교통 수요자의 요구에 따라 운행되는 교통체계, 교통 수요에 따라 가변적 운행 가능
+
+MLFF(Mulit0Lane Free Flow) - 유료도로 통햅료 수납 시스템 중 하나로 여러 차로에서 무정차로 통행료를 수납하는 시스템을 말한다.
+한국에서 다차로 하이패스 or 스마트톨링으로 불리는 시스템
+
+ETCS - 하이패스
+
+TACAN - 전술항행표지시설, 군용 항공기의 항법 시스템, 항공기에게 지상 기지국과의 거리 및 방위 정보를 제공하는 지상시설이다.
+
+WIM(Weigh in Motion) - 축중기, 화물차량의 중량과 높이를 계측하는 장비, 화물차량이 허용 중량과 높이를 벗어나는 경우 도로 진입을 제한
+
+BL - Black List, 도난, 분실, 연체 등의 사유로 거래정지가 된 신용카드의 목록을 말함, NL(Negative List)이라는 용어를 사용하기도 한다.
+
+PL -  Positive List, 거래 승인이 가능한 신용카드 목록을 말한다.
+
+C-ITS(Cooperative Intelligent Transport Systems, 협력 지능형 교통 체계) - 교통 체계가 통신을 통해 서로 협력하여 운영되는 시스템
+
+OBU 미작동 :  OBU란, *(차량에 설치된 하이패스 단말기를 말함), 미납이 되면 고시서가 옴 -> 납부하면됨 (1년간 20회 이상의 미납이 발생시 10배부과)
+
+AFC(Automatic Fare Collection) : 교통 관련 이용 요금을 자동으로 징수하는 시스템 (지하철을 이용할 때 출입구에 교통카드를 접촉시키면 자동으로 요금이 나가는 것과 같음)
+
+스마트톨링 : 유료도로의 무정차 영업시스템, 영업소 차로에 근무원이 없고 ETCS만으로 운영되는 것이 특징, 통행한 차량의 결제 정보가 없으면 차량번호를 활용하여 차주에게 후불고지된다.
+
+TCS - 수동 요금 징수 (사람 필요(현금))
 
 =================================================================================================
-	[윈도우 단축키]
+   [자주 쓰이는 용어[필수 단어 리스트]]
+
+HTTP 1.1/2/3
+: HTTP 1.1 : 연결당 하나의 요청과 응답을 처리하기 때문에 동시 전송 문제와 다수의 리소스를 처리하기에 속도와 성능 이슈가 존재
+*특징 : 비연결지향(connectionless) : 클라이언트가 서버에 리소스 요청한 후 응답 받으면 연결을 끊어버리는 특징
+서버에 부담을 주지 않도록 클라이언트 요청을 처리하면 연결을 끊어 서버의 부담을 줄인다. 하지만 리소스를 요청할 때마다 새롭게 연결해야 되므로 오버헤드 비용이 발생한다.
+무상태성(stateless) : 각각의 요청은 독립적이라고 여겨지는 특성으로 서버는 클라이언트의 상태를 유지하지 않는다. 요청이 처리되면 연결이 끊어지기 때문에 클라이언트의 이전 상태를 알 수 없다.
+*단점 : HOL(head of line) blocking: 특정 응답의 지연, 하나의 TCP 연결에서 3개의 이미지를 요청한 경우 첫 번째 이미지를 요청하고 응답이 지연되면 2,3번째 이미지는 대기하게 되는데 이러한 현상을 HTTP의 HOB(head of line blocking)이라고 부른다.
+
+RTT(round trip time)증가 : 하나의 connection에 하나의 요청을 처리하면서 매 요청별로 connection이 연결되기 때문에 TCP 상에서 동작하는 HTTP 특성상 3-way handshake가 반복적으로 일어나 불필요한 RTT 증가와 네트워크 지연을 일으켜 성능을 저하시킨다.
+ 
+무거운 header 구조 : 헤더에 많은 메타 정보를 저장한다. 매 요청시마다 중복된 header값을 전송하게 되며 해당 domain에 설정된 cookie 정보도 매 요청시 마다 헤더에 포함되어 전송된다.
+
+*2줄 요약
+
+: HTTP 2 :
+
+: HTTP 3 :
+
+
+아파치, 아파치 웹 서버, 아파치 톰캣, HTTPd
+NginX
+Tmax Zeus, Tmax WebToB, Tmax Tibero
+Oracle, Oracle DB, Oracle RDBMS, Oracle WebLogic
+Redis
+RabbitMQ
+TCP, UDP, QUIC
+   TCP : 신뢰성 있는 통신, 순서가 존재, 연결형 통신방식, 재송신 존재
+   UDP : 비신뢰성 통신, 순서가 존재하지 않음 스트리밍 같은 경우에 주로 사용
+MNDB, IMDB
+프로토콜이란? : 상호간 통신규약
+IP와 IP 주소의 차이점
+   ip는 인터넷
+TCP/IP Layer와 TCP/IP Stack의 차이
+프레임워크와 컴포넌트, 라이브러리 차이
+Vue.js, React
+Spring Framework, Spring Boot
+jpg, png, bmp 구조와 특징, 차이
+Telnet, SSH
+FTP, SMB, NAS
+SNMP
+리눅스, 유닉스, 윈도우 차이
+VMWare, VirtualBox, ESXi, Hyper-V 차이
+API와 Restful API 차이
+클래스, 메서드, 함수 차이
+컴파일러, 인터프리터 차이
+가비지 컬렉터와 자바의 가비지 켈럭터
+CentOS, Ubuntu, RedHat, AIX
+
+=================================================================================================
+   [윈도우 단축키]
 
 Ctrl + Shift + < , > : 단어 단위 선택
 Ctrl + Shift + 위, 아래 : 줄 단위 선택
 
 =================================================================================================
-	[Java + Spring] 
+   [Java + Spring] 
 
 자바 1.8 설치 - 환경변수 설정 https://minstar0410.tistory.com/3
 
@@ -37,6 +113,7 @@ if) 깃에서 코드를 다운 받았을때는 라이브러리 모듈이 없기 
 그 객체가 메모리에 할당되어 실제 사용될 때를 인스턴스라고 한다.
 
 Servlet이란 : 웹 페이지 등을 동적으로 생성하거나 데이터 처리를 수행하기 위해 자바로 작성된 프로그램
+   (자바 웹 애플리케이션을 개발하기 위해 필요한 server-side 프로그램, 클라이언트에게 요청을 받아 비즈니스 로직을 수행한 뒤 dynamic web page를 응답해주는 역할을 한다.)
 Servelt 생명주기 : 클라이언트가 Servlet에 요청을 하면, Servlet은 바로 호출이 되지 않고 객체를 생성하고 초기화 작업을 거친 후, 요청을 처리하는 생명 주기를 가짐
 init(초기화) - service(클라이언트 요청 처리) -  destroy(종료)
 
@@ -60,21 +137,21 @@ Connection 객체를 사용하여 애플리케이션의 성능을 향상하는 �
 클라이언트 요청이 오면 connection을 빌려주고, 처리가 끝나면 다시 connection을 반납받아 pool에 저장하는 방식을 말합니다.
 
 Spring Interceptor : https://hudi.blog/spring-handler-interceptor/
-	다수의 컨트롤러에 동일한 기능을 제공하기 위해 사용하는 것이 인터셉터이다
-	
-	preHandle
-	컨트롤러 실행 전에 수행
+   다수의 컨트롤러에 동일한 기능을 제공하기 위해 사용하는 것이 인터셉터이다
+   
+   preHandle
+   컨트롤러 실행 전에 수행
 
-	postHandle
-	컨트롤러 수행 후 결과를 뷰로 보내기 전에 수행
+   postHandle
+   컨트롤러 수행 후 결과를 뷰로 보내기 전에 수행
 
-	afterCompletion
-	뷰의 작업까지 완료된 후 수행
-	
+   afterCompletion
+   뷰의 작업까지 완료된 후 수행
+   
 HTTP Session - Java 라이브러리
 
 JSSessionID - 서버에서 세션에다가 저장 -> 쿠키에 저장
-	
+   
 @(어노테이션) 종류 : 
 Bean : 개발자가 직접 제어가 불가능한 외부 라이브러리 등을 Bean으로 만드려고 할 때 사용
 Interceptor : 
@@ -109,8 +186,8 @@ ResponseEntity를 사용한다면 적절한 상태 코드와 응답 헤더 및 �
 
 @GetMapping("/")
 public ResponseEntity<User> getUser() {
-	User user = userService.getUser();
-	return ResponseEntity.ok(user);
+   User user = userService.getUser();
+   return ResponseEntity.ok(user);
 }
 
 util에 코드를 넣었을때 @Component를 해줘야 돌아감
@@ -507,28 +584,179 @@ Java는 웹 서비스 개발, 안드로이드 개발에 사용
 
 RPA :가상 소프트웨어 로봇을 사용해 시간이 많이 드는 수작업을 수행하는 자동화 기술입니다.
 
-	[eclipse]
+   [eclipse]
 Ctrl + click -> 파일로 이동
 
-우클릭 + source 후 원하는 내용 클릭 : 단축으로 만들어줌	
+우클릭 + source 후 원하는 내용 클릭 : 단축으로 만들어줌   
 
 configuration(환경 설정) :  설정이나 프로그램의 실행 일부 등을 저장해둔 파일입니다.
 =================================================================================================
-	[배포] 
+   [배포] 
+
+Apache2 NAT방식은 포트포워딩을 사용하기 떄문에 IP를 여러개 할당받을 수 없다. 때문에 포트주소를 변경해서 사용하고
+주소를 변경해서 사용하려면 브리지 모드 방식을 사용해야한다.
+NAT(포트포워딩)와 브리지모드 : https://inpa.tistory.com/entry/VM-%F0%9F%92%BF-NAT-Bridge-Adapter-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EC%84%A4%EC%A0%95
+
+*브리지 모드를 사용하려고 했으나 회사가 ip와 포트를 사용할 수 있기 때문에 여쭤보고 진행하기   
+   
+ServerName은 도메인 이름을 입력하는건데, 구매하지 않으면 못 씀, 그래서 포트포워딩 NAT를 사용하면 vm의 ip주소에 포트를 할당해서 사용하는데 posts.conf와 vm의 포트포워딩 설정을 맞춰주면 된다.
+
+다른포트를 사용하려면 /etc/apache2/ports.conf에서 열어줘야한다. + 포트포워딩 맞추기
+
+가상호스트 설정 : https://httpd.apache.org/docs/2.4/ko/vhosts/examples.html
+
+로그인 프로젝트 product환경에 빌드 및 배포 (기존 vite 버전을 webpack버전으로 변경, server-> DevServer사용)
+    기존 vite 버전에서 webpack으로 옮길때 axios나 router 등 vite에서 기본으로 제공해주었던 라이브러리를 설치해야함
+   * 이 명령어로 설치해야함(@next달린 내용) npm i vue-router@next --save   
+1. 프론트엔드 빌드 
+   npm run build - 프로젝트 폴더안 dist 폴더에 생성
+   dist파일을 zip으로 압축한 뒤, sftp(fillzilla)를 사용해 서버로 전송해 줍니다.
+   zip 파일을 /var/www/(디렉토리주소) 으로 이동해서 압축해제(unzip)
+      *DocumentRoot가 지정되어 있음, 여기에 dist파일을 압축을 풀고 가상호스트에서 연결해주면 끝
+2. Oracle VirtualBox 설치 (7.0.16)
+3. Ubuntu LTS(Long term service) VM에 설치
+   Ubuntu LTS 22.04.4 버전으로 설치
+4. putty 로 접속(0.81)
+   Ubuntu 서버와 PuTTY 연결하는법
+      1. Ubuntu에 SSH 설치 - sudo apt-get install ssh
+      2. openssh-server 설치 - sudo apt-get install openssh-server
+      3. vm에서 설정으로 포트포워딩 해준다. (네트워크 -> 고급 -> 포트포워딩) (접속하려고 하는 ip, 포트는 22가 대부분)
+      4. putty에서 우분투 이름과 비밀번호 입력하면 연결완료
+   * ifconfig가 실행되지 않는다면 다음을 통해 net-tools를 설치를 해줍니다. - sudo apt install net-tools
+6. 파일질라로 빌드된 파일 전송 및 배포 - 연결 완료
+   Ubuntu 서버와 Filezilla(3.67.0) 연결
+      1. 포트포워딩 된 주소로 사용자를 추가한다. 
+      2. FTP가 아닌 SFTP로 연결한다.
+      3. 우분투 이름과 비밀번호 
+7. 우분투에서 웹 기동 (apache, nginx 중 선택)
+* Apache: 프로세스 기반 접근 방식으로 하나의 스레드가 하나의 요청을 처리하는 구조
+* Nginx : 이벤트 중심 접근 방식으로 하나의 스레드 내에서 여러 요청을 처리하는 구조
+차이점 : Nginx가 트래픽이 많은 웹 사이트에 더 적합하다.
+
+https://apost.dev/linux-ubuntu-apachi-webserver-install/
+   Apache 설치
+      sudo apt update
+      sudo apt install apache2
+   Apache 실행 중인지 확인   
+      sudo systemctl status apache2
+   방화벽(UFW) 조정 (사용할 포트번호 추가)
+      sudo ufw allow 'Apache Full' (80&443)
+      sudo ufw status - 방화벽 상태 확인 
+         (ufw disable)
+   가상호스트 생성 (가상호스트를 사용하면 동일한 서버에서 여러 웹사이트를 호스팅 할 수 있음)
+      cd /etc/apache2/sites-available 디렉터리에 새 구성파일을 생성해야함
+      ex) example.com 이라는 웹사이트에 대한 가상 호스트를 만들려면
+         sudo nano /etc/apache2/sites-available/example.com.conf 명령 실행
+      *root 권한이 필요하면 sudo사용
+   가상 호스트 파일 작성 ( 작성하지말고 000-default.conf cp사용하기 )
+      https://httpd.apache.org/docs/2.2/ko/vhosts/examples.html
+      <VirtualHost *:80>
+         ServerName domain1.com  //
+         ServerAlias www.domain1.com //
+         ServerAdmin webmaster@domain1.com
+         DocumentRoot /var/www/domain1.com
+
+         <Directory /var/www/domain1.com>
+            Options -Indexes +FollowSymLinks
+            AllowOverride All
+         </Directory>
+
+         ErrorLog ${APACHE_LOG_DIR}/domain1.com-error.log
+         CustomLog ${APACHE_LOG_DIR}/domain1.com-access.log combined
+      </VirtualHost>
+      
+      ServerName: 이 가상 호스트 구성에 대해 일치해야 하는 도메인입니다. 도메인 이름이어야 합니다.
+
+      ServerAlias: 이 가상 호스트에 대해 일치해야 하는 다른 모든 도메인 또는 하위 도메인(예: www 하위 도메인)입니다.
+
+      DocumentRoot: Apache가 도메인 파일을 처리할 디렉터리입니다.
+
+      Options: 이 지시문은 특정 디렉토리에서 사용할 수 있는 서버 기능을 제어합니다.
+
+      Indexes: 디렉터리 목록을 금지합니다.
+
+      FollowSymLinks: 이 옵션을 실행하면 Apache는 심볼릭 링크를 따릅니다.
+
+      AllowOverride: .htaccess 파일에 선언된 지시문이 구성 지시문을 재정의할 수 있도록 지정합니다.
+
+      ErrorLog, CustomLog: 로그 파일의 위치를 지정합니다.
+      
+   권한 수정 (cp하면 권한도 같이 가져옴 생략가능)
+      sudo chown -R www-data: /var/www/mydomain.com
+
+   새 가상 호스트 파일을 사용하도록 설정하려면 가상 호스트 파일에서 사이트 사용 디렉토리로 심볼 링크를 만드는 도우미 스크립트 사용
+      sudo a2ensite domain1.com
+   구문오류 테스트
+      sudo apachectl configtest
+   Apache 서비스 재시작하여 내용 적용
+      sudo systemctl restart apache2
+      
+   Apache 시작/재시작
+      $ sudo service apache2 restart
+   Apache 종료
+      $ sudo service apache2 stop
+
+   파일을 복사해서 옮길 떄 
+      sudo cp -r *  (옮기려는 주소) : -r을 하지 않으면 폴더는 안옮겨짐
+   에러
+      AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+   해결
+      sudo nano /etc/apache2/apache2.conf 로 들어가서 맨 아래쪽에 servername 127.0.1.1 추가하면 해결 - 원래뜨는 Warning이라 안지워도됨
+   서버 부팅시 자동으로 실행되게 설정 (초기 apache2를 설치하면 기본으로 깔려있음)
+      sudo systemctl enable apache2
+   서버 부팅시 자동으로 실행되지 않게 설정
+      sudo systemctl disable apache2
+   "mydomain.com"디렉토리의 소유권을 아파치 사용자인 "www-data"로 변경해야함, 그래야 아파치 웹서버가 웹 서비스용 디렉토리를 핸들링 가능
+      sudo chown -R www-data: /var/www/mydomain.com
+
+8. window 에서 그 웹 접속
+   윈도우에서 접속하려면 3가지 조건을 맞춰야한다.
+   1. VM의 방화벽 포트설정
+   2. VM과의 웹 호스팅한 포트를 포트포워딩 해야한다.
+   3. VM에서 apache2의 ports.conf 설정으로 포트 열어주기
+   * netstat ntlp으로 몇번 포트가 구동중인지 확인 할 수 있음
+   
+   * 포트포워딩은 가상 머신이 NAT(Network Address Translation)모드로 설정된 경우에 사용, 포트포워딩은 호스트 시스템이 특정 포트로 들어오는 요청을 VM의 해당 포트로 전달해주는 과정 
+   * NAT모드는 VM이 호스트 시스템의 네트워크를 통해 외부와 통신하도록 하는 방식
+      특징 :
+         단일IP주소: VM이 호스트 시스템과 동일한 외부 IP주소를 공유한다.
+         포트 기반 연결: 특정 포트가 열려 있는 경우에만 외부에서 VM에 접근할 수 있습니다. 포트 포워딩을 통해 호스트 시스템의 포트와 VM의 포트를 매핑합니다.
+
+   *브리지 : VM이 호스트 시스템과 동일한 네트워크 세그먼트에서 작동하도록 하는 방식으로
+      특징 :
+         고유한 IP주소: VM이 호스트 시스템과 동일한 네트워크에서 고유한 IP주소를 할당받음
+         직접 연결: 외부에서 VM에 직접 연결 가능
+
+   브리지 모드는 VM이 외부 네트워크 또는 다른 네트워크 장치와 직접 통신해야할 때 사용, 네트워크 테스트나 서비스 배포를 위해 VM이 실제 네트워크와 동일한 환경에서 작동해야할 때 적합하다
+   포트 포워딩은 로컬 개발 환경에서 외부로 노출되지 않은 VM을 테스트하거나, 여러 VM을 호스트 시스템에서 관리할 때 유용 
+
+   * 포트포워딩은 포트번호를 다양하게 해서 주로 사용 (포트 기반의 가상호스트 (Port-based virtual host)
+   * 브리지는 IP주소를 다양하게해서 사용 (주소 기반의 가상호스트 (IP-based virtual host) 방법)
+   
+a2dissite - 기본파일 비활성
+a2ensite - 기본파일 활성
+
+sudo su - : root 접속
+exit : root 나감
 
 * 이미 설치가 되고 세팅이 다 된 사람이라면
-	1. 배포할 파일의 설정(백엔드 주소 등 localhost가 아닌 주소로 변경후 build)
-	2. filezilla로 ubuntu서버로 전송 ( /var/www/폴더 생성 후 unzip)
-	3. /etc/apache2/sites-available/000-default.conf를 cp해서 복사한다. 파일명.conf
-	4. sudo nano로 설정값을 변경한다 (NAT의 경우 포트주소를 변경, Servername은 도메인주소를 구입한 사람이 입력, 브리지라면 *이 아닌 ip주소를 입력), DocumentRoot는 zip파일을 푼곳으로 설정
-	4-1. NAT라면 포트포워딩 설정에 입력한 포트번호를 입력해준다.
-	5. sudo ufw enable로 방화벽을 설정하고 사용하는 포트를 열어준다.
-	6. sudo a2ensite로 사용 등록을 한다.
-	7. /etc/apache2/ports.conf 에서 사용한 포트번호를 열어준다.
-	8. sudo systemctl restart apache2로 서버 재시작
-	
+   1. 배포할 파일의 설정(백엔드 주소 등 localhost가 아닌 주소로 변경후 build)
+   2. filezilla로 ubuntu서버로 전송 ( /var/www/폴더 생성 후 unzip)
+   3. /etc/apache2/sites-available/000-default.conf를 cp해서 복사한다. 파일명.conf
+   4. sudo nano로 설정값을 변경한다 (NAT의 경우 포트주소를 변경, Servername은 도메인주소를 구입한 사람이 입력, 브리지라면 *이 아닌 ip주소를 입력), DocumentRoot는 zip파일을 푼곳으로 설정
+   4-1. NAT라면 포트포워딩 설정에 입력한 포트번호를 입력해준다.
+   5. sudo ufw enable로 방화벽을 설정하고 사용하는 포트를 열어준다.
+   6. sudo a2ensite로 사용 등록을 한다.
+   7. /etc/apache2/ports.conf 에서 사용한 포트번호를 열어준다.
+   8. sudo systemctl restart apache2로 서버 재시작
+   
+   에러
+**만약 터미널이 안열리는 버그가 발생하면 Setting-> Region&Language -> Language를 English(Canada)로 변경
+**this incident will be reported 에러 발생시 root권한이 없다는 의미 su로 루트권한 들어가서 nano /etc/sudoers로 맨아래 수정
+
+우분투 루트로 접속하려면 permit root login - yes 설정해줘야함
 =================================================================================================
-	[Vue3]
+   [Vue3]
 
 vscode 왼쪽 아래에 브랜치가 있어서 main폴더 git clone하고 쓰면됨
 
@@ -636,17 +864,17 @@ ex) 링크 이동을 클릭했을 때, 헤더와 같은 중복되는 내용은 �
 
 모듈 번들러란 웹 애플리케이션을 구성하는 자원을 모두 각각의 모듈로 보고 이를 조합해서 병합된 하나의 결과물을 만드는 도구를 의미한다.
 
-	[JavaScript]
+   [JavaScript]
 == : 동등 연산자로 서로 값이 같다면 true, 다르다면 false가 된다. 단순히 값만을 비교
 
 === : 일치 연산자로 좌항과 우항이 정확하게 같을 때 true, 다르면 false가 된다.
 ex) 1=='1' true. 1==='1' false
    
-	[My Batis]
+   [My Batis]
 #{} : 파라미터가 String 형태로 들어와 자동적으로 파라미터 형태가 된다. 쿼리 주입 예방 가능 (회사에서 사용)
 ${} : 파라미터가 바로 출력된다. 해당 컬럼의 자료형에 맞춰 파라미터의 자료형이 변경된다. 쿼리 주입을 예방할 수 없어 보안측면에서 불리하다.
 
-	[HTML] 
+   [HTML] 
 div : 행 ㅡㅡ
 span : 열 ㅣㅣ
 label : 폼의 양식에 이름 붙이는 태그
@@ -655,7 +883,7 @@ ul(Unordered List)태그는 순서가 없는 HTML 리스트를 정의할 때 사
 https://stajun.tistory.com/entry/HTML-%ED%83%9C%EA%B7%B8-%EC%A0%95%EB%A6%AC
 
 =================================================================================================
-	[컴퓨터 네트워크]
+   [컴퓨터 네트워크]
 
 IP란 : 인터넷을 통해 데이터를 주고받을 때 사용되는 통신 규약
 
@@ -715,18 +943,18 @@ OSI 7계층 : 네트워크에서 통신이 일어나는 과정을 7단계로 나
 
 세션 종류 
 1. HttpServletRequest 객체에서 getSession을 하면 Session을 가져옴
-	생성 : Client가 요청 시
-	제거 : Server가 응답 시
-	= Request 중인 동안에만 존재
+   생성 : Client가 요청 시
+   제거 : Server가 응답 시
+   = Request 중인 동안에만 존재
 2. HttpSession : 
-	생성 : Client 최초 접속 시 
-	제거: Client 접속 종료 시
-	= 클라이언트가 접속중인 동안에만 존재 (로그인/로그아웃, 장바구니 등)
+   생성 : Client 최초 접속 시 
+   제거: Client 접속 종료 시
+   = 클라이언트가 접속중인 동안에만 존재 (로그인/로그아웃, 장바구니 등)
 3. ServletContext :
-	생성 : 서버 시작 시
-	제거 : 서버 중지 시
-	= web application이 서비스 중인 동아네는 계속 존재
-	
+   생성 : 서버 시작 시
+   제거 : 서버 중지 시
+   = web application이 서비스 중인 동아네는 계속 존재
+   
 쿠키 종류
 지속쿠키 : 브라우저 종료해도 유지됨
 세션쿠키 : 브라우저 종료시 자동으로 쿠키도 삭제
@@ -746,59 +974,59 @@ HttpSession session = httpServeltRequest.getSession(true);
 세션 스토리지 : 일시적으로 필요한 데이터 저장이 필요할 때 <일회성 로그인, 입력 폼 저장, 비로그인 장바구니>
 
 네비게이션 가드 : 뷰 라우터로 특정 URL에 접근할 떄 해당 URL의 접근을 막는 방법을 말합니다. 예를 들어, 사용자의 인증 정보가 없으면 특정 페이지에 접근하지 못하게 할 때 사용되는 기술입니다.
-	종류 : 
-	애플리케이션 전역에서 동작하는 전역 가드	
-	특정 URL에서만 동작하는 라우터 가드
-	라우터 컴포넌트 안에 정의하는 컴포넌트 가드
-	 
+   종류 : 
+   애플리케이션 전역에서 동작하는 전역 가드   
+   특정 URL에서만 동작하는 라우터 가드
+   라우터 컴포넌트 안에 정의하는 컴포넌트 가드
+    
 Oauth : 다양한 플랫폼의 특정한 사용자 데이터에 접근하기 위해 제 3자 클라이언트가 사용자의 접근 권한을 위임 받을 수 있는 
            표준 프로토콜
-	구성:
-		Resource Server : Client가 제어하고자 하는 자원을 보유하고 있는 서버 (Google, Facebook 등)
-		Resource Owner : 자원의 소유자 (로그인하는 실제 유저)
-		Client : Resource Server에 접속해서 정보를 가져오고자 하는 클라이언트 입니다. 
-	동작 방식 : 
-		1. Client가 Resource Server에게 접근 권한을 요청
-		2. 권한서버에서 제공하는 로그인 페이지를 브라우저에 띄워 출력
-		3. 해당 페이지를 사용자가 로그인 하면 Resource Server는 권한 요청 시 전달받은 uri로 허가 코드를 전달
-		4. Client는 전달받은 허가 코드를 Access Token으로 교환하게 된다.
-		5. 그 후 Access Token을 통해 자원을 요청하고, 전달하는 내용이 반복
+   구성:
+      Resource Server : Client가 제어하고자 하는 자원을 보유하고 있는 서버 (Google, Facebook 등)
+      Resource Owner : 자원의 소유자 (로그인하는 실제 유저)
+      Client : Resource Server에 접속해서 정보를 가져오고자 하는 클라이언트 입니다. 
+   동작 방식 : 
+      1. Client가 Resource Server에게 접근 권한을 요청
+      2. 권한서버에서 제공하는 로그인 페이지를 브라우저에 띄워 출력
+      3. 해당 페이지를 사용자가 로그인 하면 Resource Server는 권한 요청 시 전달받은 uri로 허가 코드를 전달
+      4. Client는 전달받은 허가 코드를 Access Token으로 교환하게 된다.
+      5. 그 후 Access Token을 통해 자원을 요청하고, 전달하는 내용이 반복
   
 JWT : Json Web Token의 약자로, 일반적으로 클라이언트와 서버 사이에 통신할 때 권한을 위해 사용하는 토큰이다.
-	Json 포맷을 이용하여 사용자에 대한 속성을 저장하는 Web Token
-	구성 :
-		Header(헤더) : 어떠한 알고리즘, 어떤 토큰을 사용할 것 인지에 대한 정보
-		Payload(정보) : 전달하려는 정보
-		Signature(서명) : 헤더와 정보를 합친 후 발급해준 서버가 지정한 secret key로 암호화 
-	동작 방식 :
-		1. 사용자가 로그인 요청을 한다 -DB를 통한 확인
-		2. 확인이 되면 서버는 secret key를 통해 Access Token(JWT)을 발급 – 클라이언트에게 전달
-		3. 사용자가 서버에 요청을 할 때마다 해당 토큰을 서버와 함께 전달한다. – 서버는 토큰을 검증하고 응답 
+   Json 포맷을 이용하여 사용자에 대한 속성을 저장하는 Web Token
+   구성 :
+      Header(헤더) : 어떠한 알고리즘, 어떤 토큰을 사용할 것 인지에 대한 정보
+      Payload(정보) : 전달하려는 정보
+      Signature(서명) : 헤더와 정보를 합친 후 발급해준 서버가 지정한 secret key로 암호화 
+   동작 방식 :
+      1. 사용자가 로그인 요청을 한다 -DB를 통한 확인
+      2. 확인이 되면 서버는 secret key를 통해 Access Token(JWT)을 발급 – 클라이언트에게 전달
+      3. 사용자가 서버에 요청을 할 때마다 해당 토큰을 서버와 함께 전달한다. – 서버는 토큰을 검증하고 응답 
 
 
 PuTTY : SSH, 텔넷, rlogin, rawTCP를 위한 클라이언트로 동작하는 자유 및 오픈 소스 단말 에뮬레이터 응용 프로그램이다. 
-	( 대표적인 원격 접속 프로그램 )
+   ( 대표적인 원격 접속 프로그램 )
 
 CI : Continuous Integration, 새로운 코드 변경 사항이 정기적으로 빌드 및 테스트 되어 공유 레포지토리에 통합
 CD : Continuous Delivery, 개발자의 변경 사항이 레포지토리를 넘어, 고객의 프로덕션 환경까지 릴리즈
 
 * SSL(Secure Sockets Layer)이란 : 브라우저와 서버 간의 통신에서 정보를 암호화함으로써 도중에 해킹을 통해 정보가 유출되더라도 정보의 내용을 보호할 수 있게 해주는 보안 솔루션
-	(ex) http대신 https)
+   (ex) http대신 https)
 * Gateway : 내 네트워크 대역에서 다른 네트워크 대역으로 통신하려면 Gateway를 거쳐야 통신이 가능
-		서로 다른 네트워크의 프로토콜이 다를 경우에 중재 역할
-		
+      서로 다른 네트워크의 프로토콜이 다를 경우에 중재 역할
+      
 
 * 포트포워딩은 가상 머신이 NAT(Network Address Translation)모드로 설정된 경우에 사용, 포트포워딩은 호스트 시스템이 특정 포트로 들어오는 요청을 VM의 해당 포트로 전달해주는 과정 
 * NAT모드는 VM이 호스트 시스템의 네트워크를 통해 외부와 통신하도록 하는 방식
-	특징 :
-		단일IP주소: VM이 호스트 시스템과 동일한 외부 IP주소를 공유한다.
-		포트 기반 연결: 특정 포트가 열려 있는 경우에만 외부에서 VM에 접근할 수 있습니다. 포트 포워딩을 통해 호스트 시스템의 포트와 VM의 포트를 매핑합니다.
+   특징 :
+      단일IP주소: VM이 호스트 시스템과 동일한 외부 IP주소를 공유한다.
+      포트 기반 연결: 특정 포트가 열려 있는 경우에만 외부에서 VM에 접근할 수 있습니다. 포트 포워딩을 통해 호스트 시스템의 포트와 VM의 포트를 매핑합니다.
 
 *브리지 : VM이 호스트 시스템과 동일한 네트워크 세그먼트에서 작동하도록 하는 방식으로
-	특징 :
-		고유한 IP주소: VM이 호스트 시스템과 동일한 네트워크에서 고유한 IP주소를 할당받음
-		직접 연결: 외부에서 VM에 직접 연결 가능
-		
+   특징 :
+      고유한 IP주소: VM이 호스트 시스템과 동일한 네트워크에서 고유한 IP주소를 할당받음
+      직접 연결: 외부에서 VM에 직접 연결 가능
+      
 브리지 모드는 VM이 외부 네트워크 또는 다른 네트워크 장치와 직접 통신해야할 때 사용, 네트워크 테스트나 서비스 배포를 위해 VM이 실제 네트워크와 동일한 환경에서 작동해야할 때 적합하다
 포트 포워딩은 로컬 개발 환경에서 외부로 노출되지 않은 VM을 테스트하거나, 여러 VM을 호스트 시스템에서 관리할 때 유용 
 
@@ -883,8 +1111,28 @@ IP - 인터넷 망을 통해 패킷을 전달하는 프로토콜
 패리티 비트가 뭔가요?
 전송하고자 하는 데이터의 끝에 1비트를 더해 전송하는 방법으로 0과 1비트를 더해 데이터의 오류를 검출하는 오류식별자 입니다.
 
+DHCP(Dynamic Host Configuration Protocol) 동적 호스트 구성 프로토콜 : DHCP란 단어 그대로 동적으로 호스트를 설정하는 규약, 해당 ip주소와 기타 관련 구성 정보를 ip호스트에 자동으로 제공하는 클라이언트/서버 프로토콜
+
+포트포워딩 : putty에 guest ip가 아닌 host ip를 입력한다.
+
+미들웨어는 서로 다른 애플리케이션이 서로 통신하는 데 사용되는 소프트웨어입니다.
+
+nano대신 vi사용하기
+https://psklovejyh.tistory.com/14
+   사용법 
+   :wq - 저장후 종료
+   :q - 저장하지 않고 종료
+   :w [파일명] - 작업한 내용을 저장만 하고 파일을 지정하면 새 파일로 저장
+   
+   입력모드
+   i
+
+SVN - 브랜치가 없고, pull이 rebase만 된다.
+    - 광안대교 개발할때 SVN방식으로 한다.(소규모 개발에 좋음)
+   - 개발방법론이 안좋은게 많다. 적합한 방법이 있음 빨리 배워서 실수를 최소화 
+   
 =================================================================================================
-	[데이터 통신]
+   [데이터 통신]
 
 커넥션 : DB와 클라이언트 간의 TCP 소켓을 통한 물리적인 연결
 
@@ -907,9 +1155,33 @@ DCL : 데이터 제어 언어, Grant, Revoke
 NOSQL : Not Only SQL의 약자로 SQL을 보완한다는 의미를 가지고있고, 스키마가 없어서 속도가 빠르다.
 
 스키마 : 데이터베이스의 구조와 제약조건에 대한 명세를 기술한 집합
+데이터베이스 스키마(database schema)는 데이터베이스(Database) 전체 또는 일부의 논리적인 구조를 표현하는 것으로 데이터베이스 내에서 데이터가 어떤 구조로 저장되어있는지 확인
+
+ERD (Entity Relationship Diagram)는 단어에서 의미하는 그대로 'Entity 개체'와 'Relationship 관계'를 중점적으로 표시하는 데이터베이스 구조를 한 눈에 알아보기 위해 그려놓는 다이어그램
+
+[Oracle]
+   sqlplus에 접속 현재버전[21c]
+   *create user [이름] identified by [비밀번호];
+   12이상부터는 저거 사용
+   
+   *##을 붙여야함 안쓰려면 이거사용
+   ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
+   
+   만든 계정으로 사용하려면 권한을 줘야함
+   grant connect, resource, dba to [id];
+   connect = 접속 권한
+   resource = 객체 및 데이터 조작 권한
+   dba = 모든 권한을 사용자에게 부여할 수 있는 권한
+   
+   * 이게 가장 일반적
+   grant connect, resource to [이름];
+   
+   
+   오라클은 일단 1개의 데이터베이스는 1개의 계정을 생성하는게 맞는거같음
+   * 좀더 공부 필요
 
 =================================================================================================
-	[운영체제]
+   [운영체제]
 
 *일반적으로 하나의 프로그램은 하나 이상의 프로세스를 가지고 있고, 하나의 프로세스는 반드시 하나의 스레드를 갖는다.
 
@@ -969,7 +1241,6 @@ PCB(Process Control Block) : 시스템 내의 프로세스들을 관리하기 �
 
 인터페이스 : 인터페이스(interface)는 서로 다른 두 개의 시스템, 장치 사이에서 정보나 신호를 주고받는 경우의 접점이나 경계면이다.
 
-
 오라클은 유닉스/리눅스 환경에서 사용하는 관계형 데이터베이스 관리 시스템
 MySQL은 오픈소스의 관계형 데이터베이스 관리 시스템
 MSSQL은 윈도우 개발환경에서 사용하는 마이크로소프트가 개발한 관계형 데이터베이스 관리 시스템
@@ -977,12 +1248,12 @@ MariaDB를 주로 사용, MySQl은 오픈소스 라이센스를 따르지만 상
 Mysql과 사용법도 비슷하고 여러가지 측면을 따졌을때 MariaDB가 선호되는 추세라고 판단되어 MariaDB를 경험했습니다.
 
 =================================================================================================
-	[컴퓨터 구조]
+   [컴퓨터 구조]
 
 컴파일 : 인간이 이해할 수 있는 언어로 작성된 코드를 CPU가 이해할 수 있는 형태로 변환 
 
 =================================================================================================
-	[소프트웨어 설계 및 방법론]
+   [소프트웨어 설계 및 방법론]
 
 소프트웨어 생명주기 : 개발과 유지보수 등에 필요한 작업들을 체계적으로 정리한 개발 방법론의 바탕으로서 개발을 위한 정의, 운용, 유지보수 등의 과정을 단계별로 나눈 것 ( 대표적 생명주기 모형 : 폭포수, 프로토타입, 나선형, 애자일 )
 계획 - 설계 - 구현 - 테스트 - 배포 - 유지 관리
@@ -995,8 +1266,9 @@ Mysql과 사용법도 비슷하고 여러가지 측면을 따졌을때 MariaDB�
 
 애자일 모형 : 고객의 요구 사항 변화에 유연하게 대응하는 일정한 주기를 가지고 반복하여 개발하는 모델
 
+코드 인스펙션: 개발팀에서 작성한 개발소스 코드를 분 석하여 개발 표준에 위배되었거나 잘못 작성된 부분을 수정 하는 작업을 말한다
 =================================================================================================
-	[자료구조]
+   [자료구조]
 
 ArrayLIst는 Index가 있고, Linked List는 각 원소마다 앞, 뒤 원소의 위치값을 가지고 있다.
 
@@ -1127,7 +1399,7 @@ List는 데이터의 추가/삭제가 빠르며 데이터의 조회가 느리다
 크기 조정: 배열의 크기는 선언할 때 정해지고, 이후에는 변경할 수 없다. 반면에 List는 동적으로 크기를 조정할 수 있다. 요소를 추가하거나 제거할 때 List의 크기가 자동으로 조정되므로 편리하다.
 
 =================================================================================================
-	[암호학]
+   [암호학]
 
 SHA-256 : 임의의 길이 메시지를 256bit의 축약된 메세지로 만들어내는 해시 알고리즘
 
@@ -1138,8 +1410,8 @@ MD5 : 128비트, 전자서명, 응용프로그램 등 정보보호를 목적으�
 해시(Hash)와 암호화(Encryption)의 차이점이 무엇인가요?둘 다 암호화 기법이지만 Hash는 단방향 암호화 기법이고 Encryption은 양방향 암호화 기법이다.
 
 =================================================================================================
-	[알고리즘]
-	
+   [알고리즘]
+   
 https://se-jung-h.tistory.com/entry/CScomputer-science-CS%EA%B3%B5%EB%B6%80%ED%95%98%EA%B8%B0
 
 Bubble Sort(버블 정렬) : 서로 인접한 두 원소의 대소를 비교하고, 조건에 맞지 않다면 자리를 교환하며 정렬하는 알고리즘
@@ -1163,8 +1435,8 @@ Insertion Sort(삽입 정렬) : Selection Sort와 유사하지만, 좀 더 효�
 Quick Sort(퀵 정렬) : 분할 정복 방법을 통해 주어진 배열을 정렬한다.
 
 =================================================================================================
-	[git lab 사용시]
-	
+   [git lab 사용시]
+   
 git bash가 좋음 ( 브랜치가 보임 )
  
 가장 최근의 Commit을 취소 
@@ -1181,4 +1453,43 @@ git remote remove : 원격 저장소 삭제
 git status : git add나 commit 한거 확인하기
 
 git push origin main : main에 푸쉬하기
+=================================================================================================
+0. 세션 value 바꾸면 왜 팅기는지
+   
+1. java 카멜 케이스
+   클래스 이름 - 파스칼(앞글자 중간 대문자), 변수명- 카멜
+   자바의 명명 규칙은 프로그래밍을 할 때 따라야 할 규칙입니다.
+   단어 연결 시 첫 글자(소문자)를 제외한 각 단어의 첫 글자를 대문자로 표기하는 명명 규칙 ex) myVariableName
+2. lombok
+   Lombok은 java라이브러리로 반복되는 getter, setter, toString 등의 메서드 작성 코드를 줄여주는 코드 다이어트 라이브러리
+   롬복을 사용하면 원래 값 출력을 string으로 변환해야했던 것 까지 다 변환이 되서 보여준다 (@Data)
+      @Data : 모든 필드에 대해 @ToString, @EqualsAndHashCode, @Getter를, 모든 non-final 필드에 대해 @Setter를 설정하고 @RequireArgsConstructor를 설정해주는 단축 Annotation이다.
+      @Value : @Data의 불변 클래스 버전이다. 모든 필드를 private/final로 만들고 setter은 생성되지 않는다. 
+      
+3. dispatcher-servlet
+   서블릿 컨테이너의 가장 앞단에서 HTTP 프로토콜로 들어오는 모든 요청을 먼저 받아 적합한 컨트롤러에 위임해주는 프론트 컨트롤러이다.
+   프론트 컨트롤러란 :
+      서블릿 컨테이너의 제일 앞에서 서버로 들어오는 클라이언트의 모든 요청을 받아서 처리해주는 컨트롤러이다.
+   서블릿이란 :
+      자바 웹 애플리케이션을 개발하기 위해 필요한 server-side 프로그램, 클라이언트에게 요청을 받아 비즈니스 로직을 수행한 뒤 dynamic web page를 응답해주는 역할을 한다
+   
+4. mybatis parameterType과 resultType에는 무엇무엇이 있고, 어떻게 명시 하는지
+   parameterType : 자바에서 String 값이 들어올거란걸 인지시켜주는것
+      구문에 전달될 파라미터의 패키지 경로를 포함한 전체 클래스명이나 별칭
+      
+   resultType : select 된 데이터를 반환할 (그릇)을 정해주는 것
+      이 구문에 의해 리턴되는 기대 타입의 패키지 경로를 포함한 전체 클래스명이나 별칭. collection인 경우 collection 타입 자체가 아닌 collection 이 포함된 타입이 될 수 있다. resultType이나 resultMap을 사용하라.
+   
+5. Spring framework 주요 기능
+   1) DI
+      의존성 주입 혹은 의존 관계 주입이라고도 불린다. DI는 외부에서 객체 간의 관계를 결정해 주는데 즉, 객체를 직접 생성하는 것이 아니라 외부에서 생성 후 주입시켜 주는 방식
+   https://velog.io/@ashwon1218/DIDependency-injection-%EB%9E%80
+   2) AOP
+      
+   3) IoC <- 시나리오 하나 만들어서 코드로 시현
+      
+6. slf4j, log4j, logback
+7. interceptor, filter, AoP
+
+
 =================================================================================================
